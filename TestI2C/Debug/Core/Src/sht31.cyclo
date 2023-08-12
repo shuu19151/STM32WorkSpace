@@ -1,0 +1,10 @@
+../Core/Src/sht31.c:26:6:SHT31_Config	1
+../Core/Src/sht31.c:36:14:SHT31_SendCommand	2
+../Core/Src/sht31.c:45:14:SHT31_GetBytes	2
+../Core/Src/sht31.c:53:14:SHT31_GetData	9
+../Core/Src/sht31.c:112:10:SHT31_GetCommand	3
+../Core/Src/sht31.c:126:9:SHT31_CRC_8	4
+../Core/Src/sht31.c:141:7:SHT31_GetHumidity	1
+../Core/Src/sht31.c:144:7:SHT31_GetTemperature	1
+../Core/Src/sht31.c:148:10:SHT31_GetHumidity_raw	1
+../Core/Src/sht31.c:151:10:SHT31_GetTemperature_raw	1

@@ -1,0 +1,2 @@
+../Core/Src/calibrate.c:28:5:setCalibrationMatrix	32	static
+../Core/Src/calibrate.c:132:5:getDisplayPoint	32	static

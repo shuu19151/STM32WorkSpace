@@ -1,0 +1,39 @@
+/*
+ * Array_Lib.c
+ *
+ *  Created on: Aug 9, 2023
+ *      Author: shuu19151
+ */
+#include <stdint.h>
+#include "Array_Lib.h"
+
+/*Ignore all alphabet character*/
+static void arrayAlphabetFiltering(uint8_t *array, uint32_t arrayLength)
+{
+	uint32_t arrayIndex = 0;
+	for (arrayIndex = 0; arrayIndex < arrayLength; arrayIndex++)
+	{
+		if(array[arrayIndex] < 48 || array[arrayIndex] > 57)
+		{
+			array[arrayIndex] = 0xff;
+		}
+	}
+}
+
+uint32_t arrayFindMaxValue(uint8_t *arrayAddress, uint32_t arrayLength)
+{
+	uint32_t arrayIndex = 0;
+	uint32_t maxValue = 0;
+
+	arrayAlphabetFiltering(*arrayAddress, arrayLength);
+	for (arrayIndex = 0; arrayIndex < arrayLength; arrayIndex++)
+	{
+		if(maxValue < arrayAddress[arrayIndex])
+		{
+			maxValue = arrayAddress[arrayIndex];
+		}
+	}
+
+	return maxValue;
+}
+

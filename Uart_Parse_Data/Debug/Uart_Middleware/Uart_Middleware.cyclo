@@ -1,0 +1,6 @@
+../Uart_Middleware/Uart_Middleware.c:40:13:parseUARTPeripheralInit	1
+../Uart_Middleware/Uart_Middleware.c:52:6:parseUARTSystemInit	1
+../Uart_Middleware/Uart_Middleware.c:62:6:logToTerminal	1
+../Uart_Middleware/Uart_Middleware.c:67:6:ParseUARTBufferReady	1
+../Uart_Middleware/Uart_Middleware.c:73:10:parseUARTFindMaxValueOfLine	2
+../Uart_Middleware/Uart_Middleware.c:88:6:HAL_UART_RxCpltCallback	2

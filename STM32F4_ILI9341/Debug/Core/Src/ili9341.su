@@ -1,0 +1,12 @@
+../Core/Src/ili9341.c:18:13:WriteCommand	16	static
+../Core/Src/ili9341.c:24:13:WriteData	16	static
+../Core/Src/ili9341.c:30:6:HAL_SPI_TxCpltCallback	16	static
+../Core/Src/ili9341.c:35:6:ILI9341Reset	8	static
+../Core/Src/ili9341.c:43:6:ILI9341Init	8	static
+../Core/Src/ili9341.c:136:13:SetWindow	24	static
+../Core/Src/ili9341.c:155:6:ILI9341Pixel	24	static
+../Core/Src/ili9341.c:169:6:ILI9341DrawColourBitmap	32	static
+../Core/Src/ili9341.c:180:6:ILI9341DrawMonoBitmap	176	static
+../Core/Src/ili9341.c:233:6:ILI9341FilledRectangle	168	static
+../Core/Src/ili9341.c:262:13:WriteDataDMA	16	static
+../Core/Src/ili9341.c:268:13:WaitForDMAWriteComplete	4	static

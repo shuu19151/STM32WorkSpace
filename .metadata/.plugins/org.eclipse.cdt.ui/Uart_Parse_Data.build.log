@@ -1,0 +1,10 @@
+17:48:18 **** Incremental Build of configuration Debug for project Uart_Parse_Data ****
+make -j12 all 
+arm-none-eabi-size   Uart_Parse_Data.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11852	     20	   1980	  13852	   361c	Uart_Parse_Data.elf
+Finished building: default.size.stdout
+ 
+
+17:48:18 Build Finished. 0 errors, 0 warnings. (took 193ms)
+

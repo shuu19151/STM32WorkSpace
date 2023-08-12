@@ -1,0 +1,97 @@
+/*
+ * Uart_Middleware.c
+ *
+ *  Created on: Aug 9, 2023
+ *      Author: shuu19151
+ */
+
+/***********************************************
+ * Include library
+ **********************************************/
+#include <stdbool.h>
+#include <string.h>
+#include "../Drivers/Array_Lib/Array_Lib.h"
+#include "stm32f4xx_hal_uart.h"
+#include "Uart_Middleware.h"
+
+
+/**********************************************
+ * Definition
+ **********************************************/
+#define RX_BUFFER_LINE 4U
+#define RX_BUFFER_SIZE 80U
+
+
+/**********************************************
+ * Variable
+ **********************************************/
+/* RX buffer */
+static uint8_t RXBuffer[RX_BUFFER_LINE][RX_BUFFER_SIZE] = {0};
+
+static uint32_t RXTail = 0;
+
+static uint32_t RXHead = 0;
+
+/**********************************************
+ * Static function
+ **********************************************/
+static void parseUARTPeripheralInit(void)
+{
+    /* Initialize GPIO */
+    MX_GPIO_Init();
+
+    /* Initialize UART2 */
+    MX_USART2_UART_Init();
+}
+
+/**********************************************
+ * API function
+ **********************************************/
+void parseUARTSystemInit(void)
+{
+    /* Initialize peripheral */
+    parseUARTPeripheralInit();
+
+    logToTerminal("UART system initialized\r\n");
+    logToTerminal("Please insert your file\r\n");
+
+}
+
+void logToTerminal(uint8_t *string)
+{
+    HAL_UART_Transmit(&huart2, string, strlen((char*)string), 1000);
+}
+
+bool ParseUARTBufferReady(void)
+{
+
+    return (RXTail != RXHead);
+}
+
+uint32_t parseUARTFindMaxValueOfLine(void)
+{
+    uint32_t maxTemp = 0;
+    /* Find max value in RX buffer line */
+    maxTemp = arrayFindMaxValue(&RXBuffer[RXHead][0], RX_BUFFER_SIZE);
+
+    /* Increase RX head */
+    RXHead++;
+    if(RXHead >= 0)
+    {
+        RXHead = 0;
+    }
+
+}
+/* Callback function */
+void void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    /* Update RXTail*/
+    RXTail++;
+    if(RXTail >= RX_BUFFER_LINE)
+    {
+        RXTail = 0;
+    }
+
+    /* Enable UART receive interrupt */
+    HAL_UART_Receive_IT(&huart2, RXBuffer[RXTail][0], 43);
+}
